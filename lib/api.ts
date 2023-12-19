@@ -58,6 +58,7 @@ function formatCountry(country: Country): void {
     country.currencies = country.currencies || {};
     country.languages = country.languages || {};
     country.borders = country.borders || [];
+    country.tld = country.tld || [];
     country.currenciesList = Object.values(country.currencies).map((currency) => currency.name);
     country.languagesList = Object.values(country.languages);
     if (country.name.nativeName == null) {
