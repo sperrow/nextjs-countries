@@ -12,7 +12,7 @@ type SelectProps = {
 const RegionsSelect = ({ items, onValueChange }: SelectProps) => (
     <Select.Root onValueChange={onValueChange}>
         <Select.Trigger
-            className="gap-[5px] inline-flex items-center justify-between rounded shadow-black/10 shadow-[0_2px_10px] w-full h-[35px] p-6 leading-none hover:bg-slate-200 focus:shadow-[0_0_0_2px]  data-[placeholder]:text-slate-400 outline-none"
+            className="gap-[5px] inline-flex items-center justify-between rounded shadow-black/10 shadow-[0_2px_10px] w-full h-[35px] p-6 leading-none bg-white hover:bg-slate-200 focus:shadow-[0_0_0_2px]  data-[placeholder]:text-slate-400 outline-none"
             aria-label="Region"
         >
             <Select.Value placeholder="Filter by Region" />
@@ -29,13 +29,11 @@ const RegionsSelect = ({ items, onValueChange }: SelectProps) => (
                     <ChevronUpIcon />
                 </Select.ScrollUpButton>
                 <Select.Viewport className="p-1">
-                    <Select.Group>
-                        {items.map((item) => (
-                            <SelectItem key={item.value} value={item.value} className="p-6">
-                                {item.label}
-                            </SelectItem>
-                        ))}
-                    </Select.Group>
+                    {items.map((item) => (
+                        <SelectItem key={item.value} value={item.value} className="p-6">
+                            {item.label}
+                        </SelectItem>
+                    ))}
                 </Select.Viewport>
                 <Select.ScrollDownButton className="flex items-center justify-center h-[25px] bg-white cursor-default">
                     <ChevronDownIcon />
@@ -56,7 +54,7 @@ const SelectItem = React.forwardRef<Ref, SelectItemProps>(({ children, className
     return (
         <Select.Item
             className={classnames(
-                ' leading-none rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-slate-200 data-[highlighted]:text-slate-400',
+                'leading-none rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-slate-200 data-[highlighted]:text-slate-400',
                 className
             )}
             {...props}
