@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import Select from './select';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import type { Country } from '@/types/country';
@@ -14,14 +14,25 @@ interface Props {
 
 const CountryList = ({ countries, regions }: Props) => {
     const [filteredCountries, setFilteredCountries] = useState(countries);
+    const [regionCountries, setRegionCountries] = useState(countries);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const handleRegionChange = function (value: string) {
-        if (value === 'all') {
-            setFilteredCountries(countries);
-        } else {
-            setFilteredCountries(countries.filter((country) => country.region === value));
-        }
+        const matches = value === 'all' ? countries : countries.filter((country) => country.region === value);
+        setRegionCountries(matches);
+        filterCountries(matches, searchQuery);
     };
+
+    const handleSearchChange = function (e: ChangeEvent<HTMLInputElement>) {
+        const value = e.target.value;
+        setSearchQuery(value);
+        filterCountries(regionCountries, value);
+    };
+
+    function filterCountries(countries: Country[], value: string) {
+        const matches = value === '' ? countries : countries.filter((country) => country.name.common.toLowerCase().indexOf(value.toLowerCase()) === 0);
+        setFilteredCountries(matches);
+    }
 
     return (
         <>
@@ -30,6 +41,7 @@ const CountryList = ({ countries, regions }: Props) => {
                     <input
                         className="w-full rounded shadow-black/10 shadow-[0_2px_10px] h-[35px] p-6 pl-14 leading-none hover:bg-slate-200 data-[placeholder]:text-slate-400 outline-none"
                         placeholder="Search for a country..."
+                        onChange={handleSearchChange}
                     />
                     <MagnifyingGlassIcon className="absolute top-4 left-6" />
                 </div>
