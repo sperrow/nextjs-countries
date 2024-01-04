@@ -33,7 +33,7 @@ export default async function Page({ params }: Props) {
             <div className="p-6 flex flex-row">
                 <div className="my-6 w-3/5 lg:w-48">
                     <Link href="/">
-                        <span className="gap-[10px] inline-flex items-center justify-between rounded shadow-black/10 shadow-[0_2px_10px] h-[35px] p-6 leading-none hover:bg-slate-200 outline-none">
+                        <span className="gap-[10px] inline-flex items-center justify-between rounded shadow-black/10 shadow-[0_2px_10px] h-[35px] p-6 leading-none hover:bg-slate-200 outline-none dark:bg-dark-mode-elements">
                             <ArrowLeftIcon />
                             Back
                         </span>

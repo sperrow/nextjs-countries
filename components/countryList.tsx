@@ -39,7 +39,7 @@ const CountryList = ({ countries, regions }: Props) => {
             <div className="p-6 flex flex-wrap flex-col lg:flex-row lg:justify-between">
                 <div className="relative mb-12 lg:mr-4">
                     <input
-                        className="w-full rounded shadow-black/10 shadow-[0_2px_10px] h-[35px] p-6 pl-14 leading-none hover:bg-slate-200 data-[placeholder]:text-slate-400 outline-none"
+                        className="w-full rounded shadow-black/10 shadow-[0_2px_10px] h-[35px] p-6 pl-14 leading-none hover:bg-slate-200 data-[placeholder]:text-slate-400 outline-none dark:bg-dark-mode-elements"
                         placeholder="Search for a country..."
                         onChange={handleSearchChange}
                     />

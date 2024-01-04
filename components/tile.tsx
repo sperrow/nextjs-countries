@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Tile = ({ country, priority }: Props) => {
-    const classes = `bg-white shadow-md rounded h-96 w-full max-w-[320px] ${styles.grow}`;
+    const classes = `bg-white dark:bg-dark-mode-elements shadow-md rounded h-96 w-full max-w-[320px] ${styles.grow}`;
     return (
         <div className={classes}>
             <Link href={`/country/${country.cca3}`}>
