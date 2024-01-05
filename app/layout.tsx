@@ -21,11 +21,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <main className="flex min-h-screen flex-col items-center bg-light-mode-background dark:bg-dark-mode-background dark:text-white">
                         <nav className="w-full flex items-center justify-between flex-wrap bg-white dark:bg-dark-mode-elements shadow-md py-6 lg:px-8">
                             <div className="flex items-center flex-shrink-0 mr-6">
-                                <Link href="/">
-                                    <span className="font-bold lg:text-2xl tracking-tight px-6">
-                                        Where in the world?
-                                    </span>
-                                </Link>
+                                <h1>
+                                    <Link href="/">
+                                        <span className="font-bold lg:text-2xl tracking-tight px-6">
+                                            Where in the world?
+                                        </span>
+                                    </Link>
+                                </h1>
                             </div>
                             <div>
                                 <ThemeSwitch></ThemeSwitch>
