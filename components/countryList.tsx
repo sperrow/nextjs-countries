@@ -30,9 +30,27 @@ const CountryList = ({ countries, regions }: Props) => {
     };
 
     function filterCountries(countries: Country[], value: string) {
-        const matches = value === '' ? countries : countries.filter((country) => country.name.common.toLowerCase().indexOf(value.toLowerCase()) === 0);
+        const matches =
+            value === ''
+                ? countries
+                : countries.filter((country) => country.name.common.toLowerCase().indexOf(value.toLowerCase()) === 0);
         setFilteredCountries(matches);
     }
+
+    const results =
+        filteredCountries.length === 0 ? (
+            <div className="m-auto p-6 text-center bg-white dark:bg-dark-mode-elements shadow-md rounded max-w-[320px]">
+                <p>No results found</p>
+            </div>
+        ) : (
+            <div className="mb-32 grid grid-cols-1 gap-12 text-center md:grid-cols-2 lg:grid-cols-4 lg:text-left lg:px-16">
+                {filteredCountries.map((country, idx) => (
+                    <div key={country.cca3} className="flex justify-center">
+                        <Tile country={country} priority={idx < 4}></Tile>
+                    </div>
+                ))}
+            </div>
+        );
 
     return (
         <>
@@ -49,13 +67,7 @@ const CountryList = ({ countries, regions }: Props) => {
                     <Select items={regions} onValueChange={handleRegionChange}></Select>
                 </div>
             </div>
-            <div className="mb-32 grid grid-cols-1 gap-12 text-center md:grid-cols-2 lg:grid-cols-4 lg:text-left lg:px-16">
-                {filteredCountries.map((country, idx) => (
-                    <div key={country.cca3} className="flex justify-center">
-                        <Tile country={country} priority={idx < 4}></Tile>
-                    </div>
-                ))}
-            </div>
+            {results}
         </>
     );
 };
