@@ -4,6 +4,7 @@ import { Nunito_Sans } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 import ThemeSwitch from '../components/themeSwitch';
+import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
 const nunito = Nunito_Sans({ subsets: ['latin'] });
 const classes = `${nunito.className} `;
@@ -35,12 +36,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </nav>
                         <div className="max-w-screen-2xl w-full block lg:py-14 lg:px-16">{children}</div>
                         <footer className="flex w-full flex items-center justify-center p-12">
-                            <Link
-                                href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca"
-                                target="_blank"
-                            >
-                                FM
-                            </Link>
+                            <div className="p-6">
+                                <Link
+                                    href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca"
+                                    target="_blank"
+                                >
+                                    FM
+                                </Link>
+                            </div>
+                            |
+                            <div className="p-6">
+                                <Link href="https://github.com/sperrow/nextjs-countries" target="_blank">
+                                    <GitHubLogoIcon />
+                                </Link>
+                            </div>
                         </footer>
                     </main>
                 </Providers>
